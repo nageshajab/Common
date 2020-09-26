@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Nagesh Ajab</Authors>
+    <Company>Synerzip Softech Pvt Ltd</Company>
+    <Product>CommonUtilities</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>NageshAjab.CommonUtilities</PackageId>
+  </PropertyGroup>
+
+</Project>
