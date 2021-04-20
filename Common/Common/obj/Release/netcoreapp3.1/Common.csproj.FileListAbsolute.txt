@@ -1,8 +1,0 @@
-E:\Nagesh\github\common\Common\Common\bin\Release\netcoreapp3.1\Common.deps.json
-E:\Nagesh\github\common\Common\Common\bin\Release\netcoreapp3.1\Common.dll
-E:\Nagesh\github\common\Common\Common\bin\Release\netcoreapp3.1\Common.pdb
-E:\Nagesh\github\common\Common\Common\obj\Release\netcoreapp3.1\Common.AssemblyInfoInputs.cache
-E:\Nagesh\github\common\Common\Common\obj\Release\netcoreapp3.1\Common.AssemblyInfo.cs
-E:\Nagesh\github\common\Common\Common\obj\Release\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
-E:\Nagesh\github\common\Common\Common\obj\Release\netcoreapp3.1\Common.dll
-E:\Nagesh\github\common\Common\Common\obj\Release\netcoreapp3.1\Common.pdb
