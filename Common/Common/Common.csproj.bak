@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -7,7 +7,7 @@
     <Product>CommonUtilities</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>CSharp.CommonUtilities</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.0</Version>
     <AssemblyName>Common</AssemblyName>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
@@ -15,7 +15,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
-	<None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
