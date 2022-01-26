@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{7EB0F921-C33D-44D0-800A-A536C9F691AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.CommonUtilities", "Common\CSharp.CommonUtilities.csproj", "{7EB0F921-C33D-44D0-800A-A536C9F691AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTests", "CommonTests\CommonTests.csproj", "{A04FC612-95A3-4CC9-8756-CA7F17DE9068}"
 EndProject

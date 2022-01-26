@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace Common
+namespace CSharp.CommonUtilities
 {
     public class AppSettings
     {        

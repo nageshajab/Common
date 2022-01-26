@@ -3,18 +3,21 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Authors>Nagesh Ajab</Authors>
-    <Company>Synerzip Softech Pvt Ltd</Company>
+    <Company>Excellarate</Company>
     <Product>CommonUtilities</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>CSharp.CommonUtilities</PackageId>
-    <Version>1.0.1</Version>
-    <AssemblyName>Common</AssemblyName>
+    <Version>1.0.4</Version>
+    <AssemblyName>CSharp.CommonUtilities</AssemblyName>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<SignAssembly>True</SignAssembly>
+	<AssemblyOriginatorKeyFile>C:\Nagesh\github\Common\my-strong-signing-keys\mystrongsignkey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <None Include="..\..\my-strong-signing-keys\mystrongsignkey.snk" Link="mystrongsignkey.snk" />
 	<None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 

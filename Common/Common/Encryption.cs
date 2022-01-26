@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Common
+namespace CSharp.CommonUtilities
 {
     public static class Encryption
     {

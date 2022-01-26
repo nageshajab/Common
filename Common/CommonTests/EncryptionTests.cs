@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Common;
+using CSharp.CommonUtilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Tests
+namespace CSharp.CommonUtilities.Tests
 {
     [TestClass()]
     public class EncryptionTests
