@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -6,66 +7,47 @@ namespace CSharp.CommonUtilities
 {
     public static class Encryption
     {
-        public static string Securitykey { get; set; }
-        public static string Encrypt(string secureUserData, bool useHashing = true)
+        public static string Encrypt(string secureUserData, string SecurityKey)
         {
-            byte[] keyArray;
-            byte[] toEncryptArray = UTF8Encoding.UTF8.GetBytes(secureUserData);
-            byte[] resultArray;
-
-            if (useHashing)
+            byte[] bytesBuff = Encoding.Unicode.GetBytes(secureUserData);
+            using (Aes aes = Aes.Create())
             {
-                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(Securitykey));
-                hashmd5.Clear();
+                Rfc2898DeriveBytes crypto = new Rfc2898DeriveBytes(SecurityKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                aes.Key = crypto.GetBytes(32);
+                aes.IV = crypto.GetBytes(16);
+                using (MemoryStream mStream = new MemoryStream())
+                {
+                    using (CryptoStream cStream = new CryptoStream(mStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cStream.Write(bytesBuff, 0, bytesBuff.Length);
+                        cStream.Close();
+                    }
+                    secureUserData = Convert.ToBase64String(mStream.ToArray());
+                }
             }
-            else
-            {
-                keyArray = UTF8Encoding.UTF8.GetBytes(Securitykey);
-
-            }
-            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
-            tdes.Key = keyArray;
-            tdes.Mode = CipherMode.ECB;
-            tdes.Padding = PaddingMode.PKCS7;
-
-            ICryptoTransform cTransform = tdes.CreateEncryptor();
-            resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
-
-            tdes.Clear();
-            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+            return secureUserData;
         }
 
-        public static string Decrypt(string cipherString, bool useHashing = true)
+        public static string Decrypt(string cipherString, string SecurityKey)
         {
-            byte[] keyArray;
-            byte[] toEncryptArray = Convert.FromBase64String(cipherString);
-            byte[] resultArray;
-
-            if (useHashing)
+            cipherString = cipherString.Replace(" ", "+");
+            byte[] bytesBuff = Convert.FromBase64String(cipherString);
+            using (Aes aes = Aes.Create())
             {
-                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(Securitykey));
-
-                hashmd5.Clear();
+                Rfc2898DeriveBytes crypto = new Rfc2898DeriveBytes(SecurityKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                aes.Key = crypto.GetBytes(32);
+                aes.IV = crypto.GetBytes(16);
+                using (MemoryStream mStream = new MemoryStream())
+                {
+                    using (CryptoStream cStream = new CryptoStream(mStream, aes.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cStream.Write(bytesBuff, 0, bytesBuff.Length);
+                        cStream.Close();
+                    }
+                    cipherString = Encoding.Unicode.GetString(mStream.ToArray());
+                }
             }
-            else
-            {
-                keyArray = UTF8Encoding.UTF8.GetBytes(Securitykey);
-            }
-
-            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
-            tdes.Key = keyArray;
-            tdes.Mode = CipherMode.ECB;
-            tdes.Padding = PaddingMode.PKCS7;
-
-            ICryptoTransform cTransform = tdes.CreateDecryptor();
-            resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
-
-            tdes.Clear();
-
-            return UTF8Encoding.UTF8.GetString(resultArray);
+            return cipherString;
         }
     }
 }

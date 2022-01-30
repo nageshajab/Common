@@ -10,27 +10,26 @@ namespace CSharp.CommonUtilities.Tests
 {
     [TestClass()]
     public class EncryptionTests
-    {
-        
-
+    {      
         [TestMethod()]
         public void EncryptTest()
         {
-            Encryption.Securitykey = "securitykey";
-            string encryptedText = Encryption.Encrypt("nageshajab");
+          //  Encryption.Securitykey = "securitykey";
+            string encryptedText = Encryption.Encrypt("nagesh","securitykey"); 
 
             Assert.IsNotNull(encryptedText);
-            Assert.IsTrue(encryptedText == "DKsNCQB6Zyk0/EPe85AhLQ==");
+            System.Console.WriteLine(encryptedText);
+            Assert.IsTrue(encryptedText == "rHBsqcyQp4zsYGNBBXnAgQ==");
         }
 
         [TestMethod()]
         public void DecryptTest()
         {
-            Encryption.Securitykey = "securitykey";
-            string decryptedText = Encryption.Decrypt("DKsNCQB6Zyk0/EPe85AhLQ==");
+          
+            string decryptedText =Encryption.Decrypt("rHBsqcyQp4zsYGNBBXnAgQ==","securitykey");
 
             Assert.IsNotNull(decryptedText);
-            Assert.IsTrue(decryptedText == "nageshajab");
+            Assert.IsTrue(decryptedText == "nagesh");
         }
     }
 }

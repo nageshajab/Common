@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Nagesh Ajab</Authors>
     <Company>Excellarate</Company>
     <Product>CommonUtilities</Product>
@@ -10,8 +10,6 @@
     <Version>1.0.4</Version>
     <AssemblyName>CSharp.CommonUtilities</AssemblyName>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
-	<SignAssembly>True</SignAssembly>
-	<AssemblyOriginatorKeyFile>C:\Nagesh\github\Common\my-strong-signing-keys\mystrongsignkey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
