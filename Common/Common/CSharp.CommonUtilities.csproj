@@ -7,7 +7,7 @@
     <Product>CommonUtilities</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>CSharp.CommonUtilities</PackageId>
-    <Version>1.0.4</Version>
+    <Version>1.0.6</Version>
     <AssemblyName>CSharp.CommonUtilities</AssemblyName>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
